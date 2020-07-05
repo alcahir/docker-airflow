@@ -59,6 +59,8 @@ RUN set -ex \
     && pip install cx_Oracle \
     && pip install pyOpenSSL \
     && pip install ndg-httpsclient \
+    && pip uninstall -y SQLAlchemy
+    && pip install SQLAlchemy==1.3.15
     && pip install pyasn1 \
     && pip install apache-airflow[crypto, oracle, celery,postgres,hive,jdbc,mysql,ssh${AIRFLOW_DEPS:+,}${AIRFLOW_DEPS}]==${AIRFLOW_VERSION} \
     && pip install 'redis==3.2' \
